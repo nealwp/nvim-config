@@ -18,3 +18,5 @@ vim.keymap.set("i", "{", "{}<ESC>ha")
 vim.keymap.set("i", "(", "()<ESC>ha")
 vim.keymap.set("i", "[", "[]<ESC>ha")
 
+-- save file with leader z
+vim.keymap.set("n", "<leader>z", ":w<CR>")
