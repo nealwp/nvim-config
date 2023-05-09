@@ -1,3 +1,4 @@
+---[[
 local c = require('vscode.colors').get_colors()
 require('vscode').setup({
     -- Alternatively set style in setup
@@ -15,3 +16,4 @@ require('vscode').setup({
 
 })
 require('vscode').load()
+--]]

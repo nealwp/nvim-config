@@ -1,3 +1,4 @@
+---[[
 local lsp = require("lsp-zero").preset({})
 
 lsp.on_attach(function(client, bufnr)
@@ -40,4 +41,4 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
   })
 
 cmp.setup({ mapping = cmp_mappings })
-
+--]]
