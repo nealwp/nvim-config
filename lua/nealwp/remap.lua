@@ -15,8 +15,13 @@ vim.keymap.set("n", "Q", "<nop>")
 vim.keymap.set("i", "\"", "\"\"<ESC>ha")
 vim.keymap.set("i", "'",  "''<ESC>ha")
 vim.keymap.set("i", "{", "{}<ESC>ha")
-vim.keymap.set("i", "(", "()<ESC>ha")
 vim.keymap.set("i", "[", "[]<ESC>ha")
+vim.keymap.set("i", "`", "``<ESC>ha")
+vim.keymap.set("i", "/*", "/*  */<ESC>3ha")
 
--- save file with leader z
-vim.keymap.set("n", "<leader>z", ":w<CR>")
+-- save file with leader w
+vim.keymap.set("n", "<leader>w", ":w<CR>")
+
+-- quit vim with leader q
+vim.keymap.set("n", "<leader>q", ":q<CR>")
+
