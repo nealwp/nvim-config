@@ -11,6 +11,15 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set("x", "<leader>p", "\"_dP")
 
 vim.keymap.set("n", "Q", "<nop>")
+vim.keymap.set("n", "<Up>", "<nop>")
+vim.keymap.set("n", "<Down>", "<nop>")
+vim.keymap.set("n", "<Left>", "<nop>")
+vim.keymap.set("n", "<Right>", "<nop>")
+
+vim.keymap.set("i", "<Up>", "<nop>")
+vim.keymap.set("i", "<Down>", "<nop>")
+vim.keymap.set("i", "<Left>", "<nop>")
+vim.keymap.set("i", "<Right>", "<nop>")
 
 vim.keymap.set("i", "\"", "\"\"<ESC>ha")
 vim.keymap.set("i", "'",  "''<ESC>ha")
