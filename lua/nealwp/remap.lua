@@ -21,10 +21,6 @@ vim.keymap.set("i", "<Down>", "<nop>")
 vim.keymap.set("i", "<Left>", "<nop>")
 vim.keymap.set("i", "<Right>", "<nop>")
 
-vim.keymap.set("i", "{", "{}<ESC>ha")
-vim.keymap.set("i", "[", "[]<ESC>ha")
-vim.keymap.set("i", "/*", "/*  */<ESC>3ha")
-
 -- save file with leader w
 vim.keymap.set("n", "<leader>w", ":w<CR>")
 
