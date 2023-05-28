@@ -7,6 +7,6 @@ vim.keymap.set('n', '<leader>pf', builtin.find_files, {})
 vim.keymap.set('n', '<C-p>', builtin.git_files, {})
 -- leader g to grep a string
 vim.keymap.set('n', '<leader>g', function()
-    builtin.grep_string({ search = vim.fn.input("Grep > ") });
+    builtin.grep_string({ search = vim.call("expand", "<cword>") });
 end)
 --]]
