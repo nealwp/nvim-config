@@ -9,4 +9,6 @@ vim.keymap.set('n', '<C-p>', builtin.git_files, {})
 vim.keymap.set('n', '<leader>g', function()
     builtin.grep_string({ search = vim.call("expand", "<cword>") });
 end)
+-- leader r to show references
+vim.keymap.set('n', '<leader>r', builtin.lsp_references, {})
 --]]
