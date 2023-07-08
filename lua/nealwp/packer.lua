@@ -11,7 +11,7 @@ local ensure_packer = function()
   return false
 end
 
-local packer_boostrap = ensure_packer()
+local packer_bootstrap = ensure_packer()
 
 -- Only required if you have packer configured as `opt`
 vim.cmd [[packadd packer.nvim]]
@@ -54,6 +54,11 @@ return require('packer').startup(function(use)
     			{'L3MON4D3/LuaSnip'},     -- Required
   		}
 	}
+
+    use({
+        "iamcco/markdown-preview.nvim",
+        run = function() vim.fn["mkdp#util#install"]() end,
+    })
 
 	if packer_bootstrap then
 		require('packer').sync()
