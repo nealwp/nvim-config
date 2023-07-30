@@ -7,9 +7,6 @@ vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
--- keep copied text when highlight & paste over
-vim.keymap.set("x", "<leader>p", "\"_dP")
-
 vim.keymap.set("n", "Q", "<nop>")
 vim.keymap.set("n", "<Up>", "<nop>")
 vim.keymap.set("n", "<Down>", "<nop>")
@@ -32,3 +29,22 @@ vim.keymap.set("n", "<leader>c", ":")
 
 -- command line with leader C
 vim.keymap.set("n", "<leader>C", ":!")
+
+-- yank to "* with leader y
+vim.keymap.set("v", "<leader>y", '"+y')
+vim.keymap.set("n", "<leader>yy", '"+yy')
+
+-- del to "+ with leader d
+vim.keymap.set("v", "<leader>d", '"+d')
+vim.keymap.set("n", "<leader>dd", '"+dd')
+
+-- paste from "+ with leader p
+vim.keymap.set("n", "<leader>p", '"+p')
+vim.keymap.set("n", "<leader>P", '"+P')
+
+
+-- keep visual selection when tabbing
+vim.keymap.set("v", ">", ">gv")
+vim.keymap.set("v", "<", "<gv")
+
+
