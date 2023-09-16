@@ -12,5 +12,9 @@ if [ -d /squashfs-root ]; then
     rm -f /squashfs-root/.* 2> /dev/null
 fi
 
+if ! [ -d /squashfs-root ]; then
+    mkdir /squashfs-root
+fi
+
 mv ./squashfs-root/* /squashfs-root
 rm -rf ./squashfs-root ./nvim.appimage
