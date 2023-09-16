@@ -1,0 +1,16 @@
+#!/bin/bash
+if [ -f ./nvim.appimage ]; then
+    rm ./nvim.appimage
+fi
+
+wget https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
+chmod +x ./nvim.appimage
+./nvim.appimage --appimage-extract
+
+if [ -d /squashfs-root ]; then
+    rm -rf /squashfs-root/*
+    rm -f /squashfs-root/.* 2> /dev/null
+fi
+
+mv ./squashfs-root/* /squashfs-root
+rm -rf ./squashfs-root ./nvim.appimage
