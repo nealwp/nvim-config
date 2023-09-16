@@ -55,10 +55,20 @@ return require('packer').startup(function(use)
   		}
 	}
 
+
     use({
         "iamcco/markdown-preview.nvim",
         run = function() vim.fn["mkdp#util#install"]() end,
     })
+
+    use({
+      "folke/zen-mode.nvim",
+    })
+
+    use ({
+        'preservim/vim-pencil',
+        opt = false,
+      })
 
 	if packer_bootstrap then
 		require('packer').sync()

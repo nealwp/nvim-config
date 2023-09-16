@@ -24,6 +24,9 @@ vim.keymap.set("n", "<leader>w", ":w<CR>")
 -- quit vim with leader q
 vim.keymap.set("n", "<leader>q", ":q<CR>")
 
+-- quit vim without saving  leader Q
+vim.keymap.set("n", "<leader>Q", ":q!<CR>")
+
 -- command mode with leader c
 vim.keymap.set("n", "<leader>c", ":")
 
@@ -46,5 +49,4 @@ vim.keymap.set("n", "<leader>P", '"+P')
 -- keep visual selection when tabbing
 vim.keymap.set("v", ">", ">gv")
 vim.keymap.set("v", "<", "<gv")
-
 

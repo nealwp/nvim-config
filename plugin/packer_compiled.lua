@@ -140,14 +140,29 @@ _G.packer_plugins = {
     path = "/home/nealwp/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
+  ["vim-pencil"] = {
+    config = { "\27LJ\2\n¥\1\0\0\2\0\t\0\0176\0\0\0009\0\1\0'\1\3\0=\1\2\0006\0\0\0009\0\1\0)\1\3\0=\1\4\0006\0\0\0009\0\1\0'\1\6\0=\1\5\0006\0\0\0009\0\1\0'\1\b\0=\1\a\0K\0\1\0\tsoft\27pencil#wrapModeDefault\6c\25pencil#concealcursor\24pencil#conceallevel\5\16tex_conceal\6g\bvim\0" },
+    loaded = true,
+    path = "/home/nealwp/.local/share/nvim/site/pack/packer/start/vim-pencil",
+    url = "https://github.com/preservim/vim-pencil"
+  },
   ["vscode.nvim"] = {
     loaded = true,
     path = "/home/nealwp/.local/share/nvim/site/pack/packer/start/vscode.nvim",
     url = "https://github.com/Mofiqul/vscode.nvim"
+  },
+  ["zen-mode.nvim"] = {
+    loaded = true,
+    path = "/home/nealwp/.local/share/nvim/site/pack/packer/start/zen-mode.nvim",
+    url = "https://github.com/folke/zen-mode.nvim"
   }
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: vim-pencil
+time([[Config for vim-pencil]], true)
+try_loadstring("\27LJ\2\n¥\1\0\0\2\0\t\0\0176\0\0\0009\0\1\0'\1\3\0=\1\2\0006\0\0\0009\0\1\0)\1\3\0=\1\4\0006\0\0\0009\0\1\0'\1\6\0=\1\5\0006\0\0\0009\0\1\0'\1\b\0=\1\a\0K\0\1\0\tsoft\27pencil#wrapModeDefault\6c\25pencil#concealcursor\24pencil#conceallevel\5\16tex_conceal\6g\bvim\0", "config", "vim-pencil")
+time([[Config for vim-pencil]], false)
 -- Config for: nvim-autopairs
 time([[Config for nvim-autopairs]], true)
 try_loadstring("\27LJ\2\n@\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\19nvim-autopairs\frequire\0", "config", "nvim-autopairs")
