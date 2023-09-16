@@ -70,6 +70,25 @@ return require('packer').startup(function(use)
         opt = false,
       })
 
+    use({
+        "folke/twilight.nvim",
+        config = function() 
+            require("twilight").setup({
+                context = 0,
+                treesitter = true,
+                expand = {
+                    "function",
+                    "method",
+                    "table",
+                    "if_statement",
+                    "paragraph",
+                    "fenced_code_block",
+                    "list",
+                }
+            })
+        end
+    })
+
 	if packer_bootstrap then
 		require('packer').sync()
 	end

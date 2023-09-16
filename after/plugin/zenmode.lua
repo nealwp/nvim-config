@@ -25,11 +25,11 @@ local options = {
     },
     -- callback where you can add custom code when the Zen window opens
     on_open = function(win)
-        vim.cmd "TogglePencil"
+        vim.cmd "Pencil"
     end,
     -- callback where you can add custom code when the Zen window closes
     on_close = function()
-        vim.cmd "TogglePencil"
+        vim.cmd "NoPencil"
     end,
 }
 
