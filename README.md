@@ -30,11 +30,15 @@ My neovim configuration. Many thanks to [ThePrimeagen](https://github.com/ThePri
     ```bash
     ./nvim/setup
     ``` 
-1. Check if it works:
+1. Launch without plugins and source Packer
     ```bash
-    nvim --version
+    nvim --noplugin
+    # when nvim launches run the following commands
+    # :source ./nvim/lua/nealwp/packer.lua
+    # :PackerSync
     ```
-1. Launch `nvim` and run `:PackerSync` and `:TSUpdate`
+1. Exit and reopen `nvim`
+
 
 ## Plugins
 * [folke/twilight.nvim](https://github.com/folke/twilight.nvim) - Used mainly for "writer" mode to focus text 
