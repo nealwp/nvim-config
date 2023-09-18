@@ -33,6 +33,12 @@ return require('packer').startup(function(use)
 	use 'Mofiqul/vscode.nvim'
 	use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
 
+    use({
+      "nvim-treesitter/nvim-treesitter-textobjects",
+      after = "nvim-treesitter",
+      requires = "nvim-treesitter/nvim-treesitter",
+    })
+
 	use {
 		'VonHeikemen/lsp-zero.nvim',
   		branch = 'v2.x',
