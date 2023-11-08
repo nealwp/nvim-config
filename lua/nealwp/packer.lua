@@ -70,6 +70,8 @@ return require('packer').startup(function(use)
         opt = false,
       })
 
+    use('tpope/vim-fugitive')
+
     use({
         "folke/twilight.nvim",
         config = function() 
