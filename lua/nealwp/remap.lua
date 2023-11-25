@@ -52,3 +52,4 @@ vim.keymap.set("v", "<", "<gv")
 
 -- toggle twilight with leader l
 vim.keymap.set("n", "<leader>l", ":Twilight<CR>")
+
