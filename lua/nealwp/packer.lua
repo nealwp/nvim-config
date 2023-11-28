@@ -34,6 +34,12 @@ return require('packer').startup(function(use)
       requires = "nvim-treesitter/nvim-treesitter",
     })
 
+    use({
+      "nvim-treesitter/playground",
+      after = "nvim-treesitter",
+      requires = "nvim-treesitter/nvim-treesitter",
+    })
+
 	use {
 		'VonHeikemen/lsp-zero.nvim',
   		branch = 'v2.x',
