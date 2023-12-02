@@ -53,3 +53,5 @@ vim.keymap.set("v", "<", "<gv")
 -- toggle twilight with leader l
 vim.keymap.set("n", "<leader>l", ":Twilight<CR>")
 
+-- rename symbol with leader 2 
+vim.keymap.set("n", "<leader>2", vim.lsp.buf.rename)
