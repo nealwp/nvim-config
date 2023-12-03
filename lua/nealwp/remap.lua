@@ -55,3 +55,6 @@ vim.keymap.set("n", "<leader>l", ":Twilight<CR>")
 
 -- rename symbol with leader 2 
 vim.keymap.set("n", "<leader>2", vim.lsp.buf.rename)
+
+-- format file with leader f
+vim.keymap.set("n", "<leader>f", "gg=G<C-o>")
