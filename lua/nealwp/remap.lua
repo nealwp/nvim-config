@@ -57,4 +57,4 @@ vim.keymap.set("n", "<leader>l", ":Twilight<CR>")
 vim.keymap.set("n", "<leader>2", vim.lsp.buf.rename)
 
 -- format file with leader f
-vim.keymap.set("n", "<leader>f", "gg=G<C-o>")
+vim.keymap.set("n", "<leader>f", "magg=G`a")
