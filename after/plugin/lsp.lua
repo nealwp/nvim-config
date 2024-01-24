@@ -11,7 +11,35 @@ lsp.set_preferences({
 	sign_icons = { }
 })
 
-lsp.setup()
+local yaml = {
+
+  schemaStore = {
+    enable = true,
+    url = "https://www.schemastore.org/api/json/catalog.json",
+  },
+
+  schemas = {
+    kubernetes = "*.yaml",
+    ["http://json.schemastore.org/github-workflow"] = ".github/workflows/*",
+    ["http://json.schemastore.org/github-action"] = ".github/action.{yml,yaml}",
+    ["https://raw.githubusercontent.com/microsoft/azure-pipelines-vscode/master/service-schema.json"] = "azure-pipelines.yml",
+    ["http://json.schemastore.org/prettierrc"] = ".prettierrc.{yml,yaml}",
+    ["http://json.schemastore.org/kustomization"] = "kustomization.{yml,yaml}",
+    ["https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json"] = "*docker-compose*.{yml,yaml}",
+  },
+
+  format = { enabled = false },
+  validate = false,
+  completion = true,
+  hover = true,
+
+}
+
+lsp.setup({
+    settings = {
+        yaml = yaml,
+    }
+})
 
 local cmp = require('cmp')
 local cmp_action = require('lsp-zero').cmp_action()
