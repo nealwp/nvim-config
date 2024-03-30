@@ -2,7 +2,7 @@
 local builtin = require('telescope.builtin')
 
 -- leader pf find files
-vim.keymap.set('n', '<leader>pf', builtin.find_files, {})
+vim.keymap.set('n', '<leader>pv', builtin.find_files, {})
 
 -- ctrl + p to search files in git
 vim.keymap.set('n', '<C-p>', builtin.git_files, {})

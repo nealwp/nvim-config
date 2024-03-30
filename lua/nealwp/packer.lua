@@ -25,7 +25,6 @@ return require('packer').startup(function(use)
       requires = { {'nvim-lua/plenary.nvim'} }
     }
 
-	use 'Mofiqul/vscode.nvim'
     use { "catppuccin/nvim", as = "catppuccin" }
 
 	use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
@@ -54,7 +53,7 @@ return require('packer').startup(function(use)
         				pcall(vim.cmd, 'MasonUpdate')
       				end,
     			},
-			{'williamboman/mason-lspconfig.nvim'}, -- Optional
+                {'williamboman/mason-lspconfig.nvim'}, -- Optional
 
     			-- Autocompletion
     			{'hrsh7th/nvim-cmp'},     -- Required
@@ -62,7 +61,6 @@ return require('packer').startup(function(use)
     			{'L3MON4D3/LuaSnip'},     -- Required
   		}
 	}
-
 
     use({
         "iamcco/markdown-preview.nvim",
@@ -78,11 +76,9 @@ return require('packer').startup(function(use)
         opt = false,
       })
 
-    use('tpope/vim-fugitive')
-
     use({
         "folke/twilight.nvim",
-        config = function() 
+        config = function()
             require("twilight").setup({
                 dimming = {
                     alpha = 0.25, -- amount of dimming
@@ -102,6 +98,16 @@ return require('packer').startup(function(use)
                     "fenced_code_block",
                     "list",
                 }
+            })
+        end
+    })
+
+    use({
+        "kylechui/nvim-surround",
+        tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+        config = function()
+            require("nvim-surround").setup({
+                -- Configuration here, or leave empty to use defaults
             })
         end
     })
