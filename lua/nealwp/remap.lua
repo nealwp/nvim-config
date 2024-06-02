@@ -58,3 +58,11 @@ vim.keymap.set("n", "<leader>2", vim.lsp.buf.rename)
 
 -- format file with leader f
 vim.keymap.set("n", "<leader>f", "magg=G`a")
+
+-- jump between splits with ctrl
+vim.keymap.set("n", "<c-l>", "<c-w><c-l>")
+vim.keymap.set("n", "<c-h>", "<c-w><c-h>")
+vim.keymap.set("n", "<c-k>", "<c-w><c-k>")
+vim.keymap.set("n", "<c-j>", "<c-w><c-j>")
+
+

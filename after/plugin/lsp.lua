@@ -63,5 +63,11 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
     ['<C-b>'] = cmp_action.luasnip_jump_backward(),
   })
 
-cmp.setup({ mapping = cmp_mappings })
+cmp.setup({
+    mapping = cmp_mappings,
+    sources = {
+        {name = 'nvim_lsp'},
+        {name = 'luasnip'},
+    },
+})
 --]]
