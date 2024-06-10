@@ -8,6 +8,7 @@ vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 vim.keymap.set("n", "Q", "<nop>")
+vim.keymap.set("n", "<leader>q", "<nop>")
 vim.keymap.set("n", "<Up>", "<nop>")
 vim.keymap.set("n", "<Down>", "<nop>")
 vim.keymap.set("n", "<Left>", "<nop>")
@@ -22,7 +23,7 @@ vim.keymap.set("i", "<Right>", "<nop>")
 vim.keymap.set("n", "<leader>w", ":w<CR>")
 
 -- quit vim with leader q
-vim.keymap.set("n", "<leader>q", ":q<CR>")
+vim.keymap.set("n", "<leader>qq", ":q<CR>")
 
 -- quit vim without saving  leader Q
 vim.keymap.set("n", "<leader>Q", ":q!<CR>")
