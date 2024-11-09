@@ -46,19 +46,12 @@ vim.keymap.set("n", "<leader>dd", '"+dd')
 vim.keymap.set("n", "<leader>p", '"+p')
 vim.keymap.set("n", "<leader>P", '"+P')
 
-
 -- keep visual selection when tabbing
 vim.keymap.set("v", ">", ">gv")
 vim.keymap.set("v", "<", "<gv")
 
 -- toggle twilight with leader l
 vim.keymap.set("n", "<leader>l", ":Twilight<CR>")
-
--- rename symbol with leader 2 
-vim.keymap.set("n", "<leader>2", vim.lsp.buf.rename)
-
--- format file with leader f
-vim.keymap.set("n", "<leader>f", "magg=G`a")
 
 -- jump between splits with ctrl
 vim.keymap.set("n", "<c-l>", "<c-w><c-l>")

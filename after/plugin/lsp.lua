@@ -1,11 +1,11 @@
 ---[[
-local lsp = require("lsp-zero").preset({})
+local lsp = require("lsp-zero").preset('recommended')
 
 lsp.on_attach(function(client, bufnr)
   lsp.default_keymaps({buffer = bufnr})
 end)
 
-lsp.ensure_installed({})
+lsp.ensure_installed({ })
 
 lsp.set_preferences({
 	sign_icons = { }
@@ -61,6 +61,10 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
     -- Navigate between snippet placeholder
     ['<C-f>'] = cmp_action.luasnip_jump_forward(),
     ['<C-b>'] = cmp_action.luasnip_jump_backward(),
+
+    -- scroll docs up and down
+    ['<C-u>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-d>'] = cmp.mapping.scroll_docs(4),
   })
 
 cmp.setup({
@@ -70,4 +74,12 @@ cmp.setup({
         {name = 'luasnip'},
     },
 })
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+    pattern = { "*.py", "*.ts" },
+    callback = function()
+        vim.lsp.buf.format()
+    end,
+})
+
 --]]
