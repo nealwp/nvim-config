@@ -66,4 +66,7 @@ vim.keymap.set("n", "<c-h>", "<c-w><c-h>")
 vim.keymap.set("n", "<c-k>", "<c-w><c-k>")
 vim.keymap.set("n", "<c-j>", "<c-w><c-j>")
 
+-- replace word under cursor with yanked text
+vim.keymap.set("n", "S", "\"_diwP")
+
 
