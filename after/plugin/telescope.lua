@@ -16,7 +16,8 @@ end)
 vim.keymap.set('n', '<leader>g', function()
     builtin.live_grep();
 end)
---
+
 -- leader r to show references
-vim.keymap.set('n', 'gr', builtin.lsp_references, {})
+vim.keymap.set('n', '<leader>r', builtin.lsp_references, {})
+--
 --]]
