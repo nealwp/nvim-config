@@ -39,17 +39,3 @@ My neovim configuration. Many thanks to [ThePrimeagen](https://github.com/ThePri
     ```
 1. Exit and reopen `nvim`
 
-
-## Plugins
-* [folke/twilight.nvim](https://github.com/folke/twilight.nvim) - Used mainly for "writer" mode to focus text 
-* [folke/zen-mode.nvim](https://github.com/folke/zen-mode.nvim) - Used with vim-pencil for "writer" mode
-* [iamcco/markdown-preview.nvim](https://github.com/iamcco/markdown-preview.nvim) - Loads a live markdown preview in browser
-* [Mofiqul/vscode.nvim](https://github.com/Mofiqul/vscode.nvim) - VS Code-esque dark mode color theme
-* [nvim-telescope/telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) - Fuzzy finder for file navigation
-* [nvim-treesitter/nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) - Syntax highlighting
-* [preservim/vim-pencil](https://github.com/preservim/vim-pencil) - Used with zen-mode for "writer" mode
-* [VonHeikemen/lsp-zero.nvim](https://github.com/VonHeikemen/lsp-zero.nvim) - LSP support, uses Mason under the hood
-* [wbthomason/packer.nvim](https://github.com/wbthomason/packer.nvim) - Plugin manager
-* [windwp/nvim-autopairs](https://github.com/windwp/nvim-autopairs) - Auto-close brackets and quotes
-
-
