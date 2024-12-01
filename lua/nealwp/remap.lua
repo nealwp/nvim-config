@@ -28,30 +28,9 @@ vim.keymap.set("n", "<leader>qq", ":q<CR>")
 -- quit vim without saving  leader Q
 vim.keymap.set("n", "<leader>Q", ":q!<CR>")
 
--- command mode with leader c
-vim.keymap.set("n", "<leader>c", ":")
-
--- command line with leader C
-vim.keymap.set("n", "<leader>C", ":!")
-
--- yank to "* with leader y
-vim.keymap.set("v", "<leader>y", '"+y')
-vim.keymap.set("n", "<leader>yy", '"+yy')
-
--- del to "+ with leader d
-vim.keymap.set("v", "<leader>d", '"+d')
-vim.keymap.set("n", "<leader>dd", '"+dd')
-
--- paste from "+ with leader p
-vim.keymap.set("n", "<leader>p", '"+p')
-vim.keymap.set("n", "<leader>P", '"+P')
-
 -- keep visual selection when tabbing
 vim.keymap.set("v", ">", ">gv")
 vim.keymap.set("v", "<", "<gv")
-
--- toggle twilight with leader l
-vim.keymap.set("n", "<leader>l", ":Twilight<CR>")
 
 -- jump between splits with ctrl
 vim.keymap.set("n", "<c-l>", "<c-w><c-l>")
@@ -61,3 +40,21 @@ vim.keymap.set("n", "<c-j>", "<c-w><c-j>")
 
 -- replace word under cursor with yanked text
 vim.keymap.set("n", "S", "\"_diwP")
+
+local builtin = require('telescope.builtin')
+
+-- leader pf find files
+vim.keymap.set('n', '<leader>f', builtin.find_files, {})
+
+-- ctrl + p to search files in git
+vim.keymap.set('n', '<C-p>', builtin.git_files, {})
+
+-- leader s to search a word
+vim.keymap.set('n', '<leader>s', function()
+    builtin.grep_string({ search = vim.call("expand", "<cword>") });
+end)
+
+-- leader g to live grep 
+vim.keymap.set('n', '<leader>g', function()
+    builtin.live_grep();
+end)
