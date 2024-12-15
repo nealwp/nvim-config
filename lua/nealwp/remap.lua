@@ -54,7 +54,7 @@ vim.keymap.set('n', '<leader>s', function()
     builtin.grep_string({ search = vim.call("expand", "<cword>") });
 end)
 
--- leader g to live grep 
+-- leader g to live grep
 vim.keymap.set('n', '<leader>g', function()
     builtin.live_grep();
 end)
