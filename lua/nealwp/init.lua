@@ -1,7 +1,3 @@
 require("nealwp.remap")
 require("nealwp.autocmd")
-require("nealwp.set")
-require("nealwp.lsp")
-require("nealwp.cmp")
-require("nealwp.snippets")
 require("nealwp.treesitter")
