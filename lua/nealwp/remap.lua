@@ -1,5 +1,3 @@
-vim.keymap.set("n", "<leader>ex", vim.cmd.Ex)
-
 -- vim.keymap.set("mode", "keycombo", "action")
 
 -- move selections with Shift+J and Shift+K
@@ -45,6 +43,7 @@ local builtin = require('telescope.builtin')
 -- leader pf find files
 vim.keymap.set('n', '<leader>f', builtin.find_files, {})
 
+vim.keymap.set("n", "<leader>ex", builtin.find_files, {})
 -- ctrl + p to search files in git
 vim.keymap.set('n', '<C-p>', builtin.git_files, {})
 
