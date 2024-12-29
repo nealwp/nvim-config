@@ -1,58 +1,25 @@
 require("config.lazy")
+require("nealwp.testwindow")
 
--- run tests in a floating terminal
-function RunTests(cmd)
-    local editor_width = 0
-    local editor_height = 0
+vim.cmd.colorscheme "catppuccin"
 
-    local windows = vim.api.nvim_list_wins()
-
-    for _, window in pairs(windows) do
-        editor_width = editor_width + vim.api.nvim_win_get_width(window)
-        local window_height = vim.api.nvim_win_get_height(window)
-        if window_height > editor_height then
-            editor_height = window_height
-        end
-    end
-
-    local width = math.floor(editor_width * 0.75)
-    local height = math.floor(editor_height * 0.75)
-    local row = math.floor((editor_height - height) / 2)
-    local col = math.floor((editor_width - width) / 2)
-    local buf = vim.api.nvim_create_buf(true, true)
-
-    --vim.api.nvim_set_hl(0, 'NormalFloat', { bg = '#0f0f0f' })
-
-    vim.api.nvim_open_win(buf, true,
-        {
-            relative = 'editor',
-            row = row,
-            col = col,
-            width = width,
-            height = height,
-            style = 'minimal',
-            border = 'rounded',
-            footer = 'Run Tests',
-            footer_pos = 'center',
-        })
-
-    vim.fn.termopen(cmd, {
-        on_exit = function(_, code)
-            vim.cmd('stopinsert')
-        end
-    })
-
-    vim.api.nvim_set_option_value('scrollback', 10000, { buf = buf })
-    vim.cmd('startinsert')
-    vim.api.nvim_buf_set_keymap(buf, 'n', 'q', ':quit!<CR>', { noremap = true, silent = true })
-end
-
--- register function as a command
-vim.api.nvim_create_user_command('RunTests', function(opts)
-        RunTests(opts.args)
-    end,
-    { nargs = 1, desc = 'Run tests in a floating window' }
-)
+--[[ vim options ]]
+vim.opt.backup = false
+vim.opt.colorcolumn = "120"
+vim.opt.expandtab = true
+vim.opt.hlsearch = false
+vim.opt.incsearch = true
+vim.opt.nu = true
+vim.opt.relativenumber = true
+vim.opt.scrolloff = 8
+vim.opt.shiftwidth = 4
+vim.opt.signcolumn = 'yes'
+vim.opt.smartindent = true
+vim.opt.softtabstop = 4
+vim.opt.swapfile = false
+vim.opt.tabstop = 4
+vim.opt.termguicolors = true
+vim.opt.wrap = false
 
 -- autoformat
 vim.api.nvim_create_autocmd("BufWritePre", {
@@ -82,38 +49,56 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end,
 })
 
-vim.api.nvim_create_autocmd("TermOpen", {
-    group = vim.api.nvim_create_augroup('custom-term-open', { clear = true }),
-    callback = function()
-        vim.opt.number = false
-        vim.opt.relativenumber = false
-    end,
-})
+--[[ keymaps ]]
 
--- set leader t for running tests with typscript files
-vim.api.nvim_create_autocmd("FileType", {
-    pattern = "typescript",
-    callback = function()
-        vim.api.nvim_set_keymap('n', '<leader>t', ':RunTests npm test<CR>', { noremap = true, silent = true })
-    end
-})
+-- move selections with Shift+J and Shift+K
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
-vim.api.nvim_create_autocmd("FileType", {
-    pattern = "python",
-    callback = function()
-        vim.api.nvim_set_keymap('n', '<leader>t', ':RunTests source .venv/bin/activate && pytest<CR>',
-            { noremap = true, silent = true })
-    end
-})
+vim.keymap.set("n", "Q", "<nop>")
+vim.keymap.set("n", "<leader>q", "<nop>")
+vim.keymap.set("n", "<Up>", "<nop>")
+vim.keymap.set("n", "<Down>", "<nop>")
+vim.keymap.set("n", "<Left>", "<nop>")
+vim.keymap.set("n", "<Right>", "<nop>")
 
--- unset leader t when not python
-vim.api.nvim_create_autocmd("FileType", {
-    pattern = "python",
-    command = 'autocmd! FileType python',
-})
+vim.keymap.set("i", "<Up>", "<nop>")
+vim.keymap.set("i", "<Down>", "<nop>")
+vim.keymap.set("i", "<Left>", "<nop>")
+vim.keymap.set("i", "<Right>", "<nop>")
 
--- unset leader t when not typescript
-vim.api.nvim_create_autocmd("FileType", {
-    pattern = "typescript",
-    command = 'autocmd! FileType typescript',
-})
+-- save file with leader w
+vim.keymap.set("n", "<leader>w", ":w<CR>")
+
+-- quit vim with leader q
+vim.keymap.set("n", "<leader>qq", ":q<CR>")
+
+-- quit vim without saving  leader Q
+vim.keymap.set("n", "<leader>Q", ":q!<CR>")
+
+-- keep visual selection when tabbing
+vim.keymap.set("v", ">", ">gv")
+vim.keymap.set("v", "<", "<gv")
+
+-- jump between splits with ctrl
+vim.keymap.set("n", "<c-l>", "<c-w><c-l>")
+vim.keymap.set("n", "<c-h>", "<c-w><c-h>")
+vim.keymap.set("n", "<c-k>", "<c-w><c-k>")
+vim.keymap.set("n", "<c-j>", "<c-w><c-j>")
+
+-- replace word under cursor with yanked text
+vim.keymap.set("n", "S", "\"_diwP")
+
+local builtin = require('telescope.builtin')
+
+vim.keymap.set('n', '<leader>f', builtin.find_files, {})
+vim.keymap.set('n', '<leader>ex', builtin.find_files, {})
+vim.keymap.set('n', '<C-p>', builtin.git_files, {})
+
+vim.keymap.set('n', '<leader>s', function()
+    builtin.grep_string({ search = vim.call('expand', '<cword>') });
+end)
+
+vim.keymap.set('n', '<leader>g', function()
+    builtin.live_grep();
+end)
