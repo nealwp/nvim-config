@@ -1,8 +1,6 @@
 require("config.lazy")
 require("nealwp.testwindow")
 
-vim.cmd.colorscheme "catppuccin"
-
 --[[ vim options ]]
 vim.opt.backup = false
 vim.opt.colorcolumn = "120"
@@ -21,9 +19,11 @@ vim.opt.tabstop = 4
 vim.opt.termguicolors = true
 vim.opt.wrap = false
 
+vim.cmd.colorscheme "catppuccin"
+
 -- autoformat
 vim.api.nvim_create_autocmd("BufWritePre", {
-    pattern = { "*.py", "*.ts", "*.css", "*.html", "*.scss", "*.lua" },
+    pattern = { "*.py", "*.ts", "*.css", "*.html", "*.scss", "*.lua", "*.js" },
     callback = function()
         vim.lsp.buf.format()
     end,
@@ -55,8 +55,12 @@ vim.api.nvim_create_autocmd('LspAttach', {
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
-vim.keymap.set("n", "Q", "<nop>")
+-- these are here for habit breaking
 vim.keymap.set("n", "<leader>q", "<nop>")
+vim.keymap.set("n", "<leader>qq", "<nop>")
+vim.keymap.set("n", "<leader>ex", "<nop>")
+
+vim.keymap.set("n", "Q", "<nop>")
 vim.keymap.set("n", "<Up>", "<nop>")
 vim.keymap.set("n", "<Down>", "<nop>")
 vim.keymap.set("n", "<Left>", "<nop>")
@@ -69,31 +73,27 @@ vim.keymap.set("i", "<Right>", "<nop>")
 
 -- save file with leader w
 vim.keymap.set("n", "<leader>w", ":w<CR>")
+-- reload file with leader e
+vim.keymap.set('n', '<leader>e', ':e<CR>')
 
--- quit vim with leader q
-vim.keymap.set("n", "<leader>qq", ":q<CR>")
-
--- quit vim without saving  leader Q
-vim.keymap.set("n", "<leader>Q", ":q!<CR>")
+-- quit vim with leader x
+vim.keymap.set("n", "<leader>x", ":q<CR>")
 
 -- keep visual selection when tabbing
 vim.keymap.set("v", ">", ">gv")
 vim.keymap.set("v", "<", "<gv")
-
--- jump between splits with ctrl
-vim.keymap.set("n", "<c-l>", "<c-w><c-l>")
-vim.keymap.set("n", "<c-h>", "<c-w><c-h>")
-vim.keymap.set("n", "<c-k>", "<c-w><c-k>")
-vim.keymap.set("n", "<c-j>", "<c-w><c-j>")
 
 -- replace word under cursor with yanked text
 vim.keymap.set("n", "S", "\"_diwP")
 
 local builtin = require('telescope.builtin')
 
-vim.keymap.set('n', '<leader>f', builtin.find_files, {})
-vim.keymap.set('n', '<leader>ex', builtin.find_files, {})
-vim.keymap.set('n', '<C-p>', builtin.git_files, {})
+vim.keymap.set('n', '_', builtin.find_files)
+vim.keymap.set('n', '<leader>h', builtin.help_tags)
+vim.keymap.set('n', '<leader>k', builtin.keymaps)
+vim.keymap.set('n', '<leader>q', builtin.quickfix)
+vim.keymap.set('n', '<leader>b', builtin.buffers)
+vim.keymap.set('n', '<leader>f', builtin.git_files)
 
 vim.keymap.set('n', '<leader>s', function()
     builtin.grep_string({ search = vim.call('expand', '<cword>') });

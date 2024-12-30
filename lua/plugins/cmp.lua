@@ -11,10 +11,10 @@ return {
             ['<C-j>'] = { 'select_next', 'fallback' },
 
             -- `Enter` key to confirm completion
-            ['<C-y>'] = { 'accept', 'fallback' },
+            ['<Enter>'] = { 'accept', 'fallback' },
 
             -- Ctrl+Space to trigger completion menu
-            ['<C-Space>'] = { 'show', 'fallback' },
+            ['<C-space>'] = { 'show', 'fallback' },
 
             -- Scroll up and down in the completion documentation
             ['<C-u>'] = { 'scroll_documentation_up', 'fallback' },

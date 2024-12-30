@@ -5,32 +5,18 @@ return {
             "nvim-treesitter/nvim-treesitter-textobjects",
             "nvim-treesitter/playground",
         },
-        opts = {
-            ensure_installed = { "python", "typescript", "bash", "lua", "yaml", "json", "html", "go" },
-            sync_install = false,
-            auto_install = true,
-            highlight = {
-                enable = true,
-            },
-            textobjects = {
-                select = {
+        config = function()
+            local configs = require("nvim-treesitter.configs")
+            configs.setup({
+                ensure_installed = {},
+                sync_install = false,
+                auto_install = true,
+                highlight = {
                     enable = true,
-                    lookahead = true,
-                    keymaps = {
-                        -- You can use the capture groups defined in textobjects.scm
-                        ["af"] = "@function.outer",
-                        ["if"] = "@function.inner",
-                        ["ac"] = "@class.outer",
-                        ["ic"] = "@class.inner",
-                        ["ab"] = "@block.outer",
-                        ["ib"] = "@block.inner",
-                        ["ii"] = "@conditional.inner",
-                        ["ai"] = "@conditional.outer",
-                        ["ia"] = "@assignment.inner",
-                        ["aa"] = "@assignment.outer",
-                    },
+                    additional_vim_regex_highlighting = false,
                 },
-            },
-        }
+                indent = { enable = true },
+            })
+        end
     }
 }
