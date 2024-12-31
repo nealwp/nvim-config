@@ -77,6 +77,13 @@ vim.api.nvim_create_autocmd("FileType", {
     end
 })
 
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "javascript",
+    callback = function()
+        vim.api.nvim_set_keymap('n', '<leader>t', ':RunTests npm test<CR>', { noremap = true, silent = true })
+    end
+})
+
 -- unset leader t when not python
 vim.api.nvim_create_autocmd("FileType", {
     pattern = "python",
@@ -87,4 +94,10 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.api.nvim_create_autocmd("FileType", {
     pattern = "typescript",
     command = 'autocmd! FileType typescript',
+})
+
+-- unset leader t when not javascript
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "javascript",
+    command = 'autocmd! FileType javascript',
 })
