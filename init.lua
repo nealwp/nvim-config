@@ -77,7 +77,7 @@ vim.keymap.set("n", "<leader>w", ":w<CR>")
 vim.keymap.set('n', '<leader>e', ':e<CR>')
 
 -- quit vim with leader x
-vim.keymap.set("n", "<leader>x", ":q<CR>")
+vim.keymap.set("n", "<leader><Esc><Esc>", ":q<CR>")
 
 -- keep visual selection when tabbing
 vim.keymap.set("v", ">", ">gv")
