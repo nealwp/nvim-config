@@ -1,9 +1,10 @@
 require("config.lazy")
 require("nealwp.testwindow")
+require("nealwp.strconv")
 
 --[[ vim options ]]
 vim.opt.backup = false
-vim.opt.colorcolumn = "120"
+vim.opt.colorcolumn = ""
 vim.opt.expandtab = true
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
