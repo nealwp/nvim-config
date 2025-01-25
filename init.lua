@@ -2,6 +2,8 @@ require("config.lazy")
 require("nealwp.testwindow")
 require("nealwp.strconv")
 
+vim.cmd.colorscheme("catppuccin")
+
 --[[ vim options ]]
 vim.opt.backup = false
 vim.opt.colorcolumn = ""
@@ -19,8 +21,6 @@ vim.opt.swapfile = false
 vim.opt.tabstop = 4
 vim.opt.termguicolors = true
 vim.opt.wrap = false
-
-vim.cmd.colorscheme("catppuccin")
 
 -- This is where you enable features that only work
 -- if there is a language server active in the file
@@ -49,11 +49,12 @@ vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 vim.keymap.set("n", "Q", "<nop>")
+
+-- disable arrow keys
 vim.keymap.set("n", "<Up>", "<nop>")
 vim.keymap.set("n", "<Down>", "<nop>")
 vim.keymap.set("n", "<Left>", "<nop>")
 vim.keymap.set("n", "<Right>", "<nop>")
-
 vim.keymap.set("i", "<Up>", "<nop>")
 vim.keymap.set("i", "<Down>", "<nop>")
 vim.keymap.set("i", "<Left>", "<nop>")
