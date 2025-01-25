@@ -56,11 +56,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
--- these are here for habit breaking
-vim.keymap.set("n", "<leader>q", "<nop>")
-vim.keymap.set("n", "<leader>qq", "<nop>")
-vim.keymap.set("n", "<leader>ex", "<nop>")
-
 vim.keymap.set("n", "Q", "<nop>")
 vim.keymap.set("n", "<Up>", "<nop>")
 vim.keymap.set("n", "<Down>", "<nop>")
@@ -75,10 +70,7 @@ vim.keymap.set("i", "<Right>", "<nop>")
 -- save file with leader w
 vim.keymap.set("n", "<leader>w", ":w<CR>")
 -- reload file with leader e
-vim.keymap.set('n', '<leader>e', ':e<CR>')
-
--- quit vim with leader x
-vim.keymap.set("n", "<leader><Esc><Esc>", ":q<CR>")
+vim.keymap.set('n', '<leader>e', ':e ')
 
 -- keep visual selection when tabbing
 vim.keymap.set("v", ">", ">gv")
