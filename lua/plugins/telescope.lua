@@ -2,22 +2,21 @@ return {
     'nvim-telescope/telescope.nvim',
     dependencies = {
         'nvim-lua/plenary.nvim',
-        { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' }
+        {
+            'nvim-telescope/telescope-fzf-native.nvim',
+            build = 'make', -- i had to manually change the makefile to use zig instead of gcc
+            config = function()
+                require('telescope').load_extension('fzf')
+            end
+        }
+
     },
     config = function()
-        local is_windows = jit.os == "Windows"
-
-        if not is_windows then
-            require('telescope').setup({
-                extensions = {
-                    fzf = {}
-                }
-            })
-
-            require('telescope').load_extension('fzf')
-        else
-            require('telescope').setup()
-        end
+        require('telescope').setup({
+            extensions = {
+                fzf = {}
+            }
+        })
 
         local builtin = require('telescope.builtin')
 
