@@ -23,13 +23,19 @@ return {
             ['<C-u>'] = { 'scroll_documentation_up', 'fallback' },
             ['<C-d>'] = { 'scroll_documentation_down', 'fallback' },
 
-            cmdline = {
-                preset = 'none',
-
+        },
+        sources = {
+            default = { 'lsp', 'path', 'snippets' },
+        },
+        completion = {
+            accept = { auto_brackets = { enabled = false }, },
+        },
+        cmdline = {
+            keymap = {
                 ['<C-k>'] = { 'select_prev', 'fallback' },
                 ['<C-j>'] = { 'select_next', 'fallback' },
                 ['<Tab>'] = { 'select_and_accept', 'fallback' },
             }
-        },
+        }
     },
 }
