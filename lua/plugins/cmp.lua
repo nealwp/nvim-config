@@ -3,25 +3,26 @@ return {
     dependencies = 'rafamadriz/friendly-snippets',
     version = '*',
     opts = {
+        enabled = function() return not vim.tbl_contains({ "lua", "markdown" }, vim.bo.filetype) end,
         appearance = {
             nerd_font_variant = 'normal',
         },
         keymap = {
-            preset = 'none',
-
-            -- Navigate between completion items
+            preset = 'default',
+            -- preset = 'none',
+            -- -- Navigate between completion items
             ['<C-k>'] = { 'select_prev', 'fallback' },
             ['<C-j>'] = { 'select_next', 'fallback' },
-
-            -- `Enter` key to confirm completion
-            ['<CR>'] = { 'select_and_accept', 'fallback' },
-
-            -- Ctrl+Space to trigger completion menu
-            ['<C-space>'] = { 'show', 'fallback' },
-
-            -- Scroll up and down in the completion documentation
-            ['<C-u>'] = { 'scroll_documentation_up', 'fallback' },
-            ['<C-d>'] = { 'scroll_documentation_down', 'fallback' },
+            --
+            -- -- `Enter` key to confirm completion
+            -- ['<CR>'] = { 'select_and_accept', 'fallback' },
+            --
+            -- -- Ctrl+Space to trigger completion menu
+            -- ['<C-space>'] = { 'show', 'fallback' },
+            --
+            -- -- Scroll up and down in the completion documentation
+            -- ['<C-u>'] = { 'scroll_documentation_up', 'fallback' },
+            -- ['<C-d>'] = { 'scroll_documentation_down', 'fallback' },
 
         },
         sources = {
