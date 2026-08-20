@@ -15,7 +15,12 @@ return {
         require('telescope').setup({
             extensions = {
                 fzf = {}
-            }
+            },
+            defaults = {
+                preview = {
+                    treesitter = false,
+                },
+            },
         })
 
         local builtin = require('telescope.builtin')

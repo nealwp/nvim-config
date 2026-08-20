@@ -3,8 +3,8 @@ return {
 
 	dependencies = {
 		"saghen/blink.cmp",
-		"williamboman/mason.nvim",
-		"williamboman/mason-lspconfig.nvim",
+		{ "mason-org/mason.nvim", version = "^1.0.0" },
+		{ "mason-org/mason-lspconfig.nvim", version = "^1.0.0" },
 	},
 
 	config = function(_, opts)
@@ -14,32 +14,30 @@ return {
 		require("mason-lspconfig").setup_handlers({
 			function(server_name)
 				local capabilities = require("blink.cmp").get_lsp_capabilities()
-				require("lspconfig")[server_name].setup({
+				vim.lsp.config(server_name, {
 					capabilities = capabilities,
 				})
+
+				vim.lsp.enable(server_name)
 			end,
 		})
 
-		require("lspconfig").lua_ls.setup({
-			on_init = function(client)
-				client.config.settings.Lua = vim.tbl_deep_extend("force", client.config.settings.Lua, {
+		vim.lsp.config("lua_ls", {
+			settings = {
+				Lua = {
 					runtime = {
-						-- Tell the language server which version of Lua you're using
-						-- (most likely LuaJIT in the case of Neovim)
 						version = "LuaJIT",
 					},
-					-- Make the server aware of Neovim runtime files
 					workspace = {
 						checkThirdParty = false,
 						library = {
 							vim.env.VIMRUNTIME,
 						},
 					},
-				})
-			end,
-			settings = {
-				Lua = {},
+				},
 			},
 		})
+
+		vim.lsp.enable("lua_ls")
 	end,
 }
