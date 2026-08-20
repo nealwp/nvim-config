@@ -21,6 +21,7 @@ vim.opt.swapfile = false
 vim.opt.tabstop = 4
 vim.opt.termguicolors = true
 vim.opt.wrap = false
+vim.opt.conceallevel = 2
 
 -- This is where you enable features that only work
 -- if there is a language server active in the file
