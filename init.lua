@@ -1,4 +1,4 @@
-require("config.lazy")
+require("config.pack")
 require("nealwp.testwindow")
 require("nealwp.strconv")
 
@@ -23,12 +23,21 @@ vim.opt.termguicolors = true
 vim.opt.wrap = false
 vim.opt.conceallevel = 2
 
+-- consistent border for LSP hover/signature/diagnostic floats, :lsp UI, etc.
+vim.o.winborder = "rounded"
+
+-- native treesitter-based folding
+vim.o.foldmethod = "expr"
+vim.o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.o.foldlevelstart = 99
+
 -- This is where you enable features that only work
 -- if there is a language server active in the file
 vim.api.nvim_create_autocmd("LspAttach", {
     desc = "LSP actions",
     callback = function(event)
         local opts = { buffer = event.buf }
+        local client = vim.lsp.get_client_by_id(event.data.client_id)
 
         vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", opts)
         vim.keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<cr>", opts)
@@ -40,6 +49,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
         vim.keymap.set("n", "<F2>", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
         vim.keymap.set({ "n", "x" }, "<F3>", "<cmd>lua vim.lsp.buf.format({async = true})<cr>", opts)
         vim.keymap.set("n", "<F4>", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
+
+        if client and client:supports_method("textDocument/inlayHint") then
+            vim.lsp.inlay_hint.enable(true, { bufnr = event.buf })
+        end
     end,
 })
 

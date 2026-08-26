@@ -1,9 +1,4 @@
-return {
-    "echasnovski/mini.nvim",
-    version = "*",
-    config = function()
-        require("mini.ai").setup()
-        require("mini.surround").setup()
-        require("mini.comment").setup()
-    end,
-}
+-- mini.comment is intentionally omitted: Neovim has built-in commenting
+-- support (gc, gcc, gcA, ...) since 0.10, using 'commentstring'.
+require("mini.ai").setup()
+require("mini.surround").setup()
